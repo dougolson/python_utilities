@@ -10,6 +10,13 @@ def get_files_list(files_directory_path, pattern):
             files_list.append(file)
     return files_list
 
+def process_file(file):
+    print(f"Processed {file}")
+
+def process_files(files_list):
+    for file in files_list:
+        process_file(file)
+
 def parse_command_line():
     parser = argparse.ArgumentParser(description='')
     parser.add_argument('-p', '--path', type=str, metavar='', help='Path to directory where files are located')
@@ -20,7 +27,7 @@ def parse_command_line():
 if __name__ == '__main__':
     args = parse_command_line()
     files_list = get_files_list(args.path,args.extension)
-    print(files_list)
+    process_files(files_list)
 
         
 
