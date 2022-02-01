@@ -18,9 +18,10 @@ def process_files(files_list):
         process_file(file)
 
 def parse_command_line():
-    parser = argparse.ArgumentParser(description='')
+    parser = argparse.ArgumentParser(description='Boilerplate code to get files from a directory and process them',
+    epilog='Usage: python process_multiple_files.py -p Home\\\\myfiles\\\\stuff -e py')
     parser.add_argument('-p', '--path', type=str, metavar='', help='Path to directory where files are located')
-    parser.add_argument('-e', '--extension',type=str, default=r'\w+', metavar='', help='File extension of desired files. regex or literal, i.e. txt, doc etc')
+    parser.add_argument('-e', '--extension',type=str, default=r'\w+', metavar='', help='File extension of desired files. regex or literal, i.e. txt, py etc. matches anything by default')
     args = parser.parse_args()
     return args
 
